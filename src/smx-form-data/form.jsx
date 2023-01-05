@@ -76,14 +76,14 @@ const Body = props => {
 
   const {useChangeArray, useChangeBooleanArray, useChangeBoolean} = props.useAcciones
 
-  let AAbonar = Math.floor((Detalle.Nivel / 100) * Detalle.Importe)
+  // let AAbonar = Math.floor((Detalle.Nivel / 100) * Detalle.Importe)
 
 
 
 
   const MiSaldo = () => Registros.reduce((a, b) => a + Number((b.Puntos)), 0)
 
-
+  const NuevoSaldo = MiSaldo() - Detalle.Importe
 
 
 // ----------------------------------
@@ -120,7 +120,7 @@ const EnableBotonV = function(props) {
 
 
 const ColorBoton = function(props) {
-  if(Detalle.EnlaceId && Detalle.Folio && Detalle.Importe){
+  if(Detalle.EnlaceId && Detalle.Folio && Detalle.Importe >= 50 && NuevoSaldo >= 0){
 
     // if(Detalle.Email.lastIndexOf('@')>0){
     //   if(Detalle.Email.lastIndexOf('.')>0){
@@ -139,7 +139,7 @@ const EnableBoton = function(props) {
 
   // if(LoadingSecc) {return false}
 
-  if(Detalle.EnlaceId && Detalle.Folio && Detalle.Importe){
+  if(Detalle.EnlaceId && Detalle.Folio && Detalle.Importe >= 50 && NuevoSaldo >= 0){
     // if(Detalle.Email.lastIndexOf('@')>0){
     //   if(Detalle.Email.lastIndexOf('.')>0){
     //       if(Aceptado){
@@ -245,7 +245,7 @@ const ModuloSimple  = () => {
           <Box css={{ height: 21 }} />
 
 
-          <Container fluid >
+          {/* <Container fluid >
             <Row style={{marginBottom: "10px"}}>
             <Col xs={2}/> 
 
@@ -268,7 +268,7 @@ const ModuloSimple  = () => {
 
             </Row>
 
-          </Container>
+          </Container> */}
 
 
          </Box>
@@ -301,7 +301,7 @@ const ModuloSimple  = () => {
 
       <Row>
       <Col xs={2}> </Col>
-        <Col xs={8}> <Text sx={Estilo.p2s} style={{color: "gray"}}>{"Abono de puntos por visita"}</Text></Col>
+        <Col xs={8}> <Text sx={Estilo.p2s} style={{color: "gray"}}>{"Canje de puntos por visita"}</Text></Col>
       </Row>
 
 
@@ -448,14 +448,14 @@ const ModuloSimple  = () => {
 
 
         <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Importe</Text><Text sx={Estilo.d2s} > (del Ticket)</Text>  </Col>
+          <Col xs={3}> <Text sx={Estilo.label1} >Puntos a Canjear</Text><Text sx={Estilo.d2s} > (mínimo 50)</Text>  </Col>
           <Col xs={3}> <Input sx={Estilo.input1} {...useChangeArray(Detalle, "Importe", setDetalle)}/> </Col>
         </Row>
 
 
         <Row style={{marginBottom: "10px"}}>
-          <Col xs={3}> <Text sx={Estilo.label1} >Puntos a Abonar</Text> </Col>
-          <Col xs={5}> <Text sx={{...Estilo.label2, textAlign: "left"}} >{AAbonar}</Text> </Col>
+          <Col xs={3}> <Text sx={Estilo.label1} >Nuevo Saldo:</Text><Text sx={Estilo.d2s} > (al confirmar)</Text> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label2, textAlign: "left"}} >{NuevoSaldo}</Text> </Col>
         </Row>
 
 
@@ -519,7 +519,7 @@ const ModuloSimple  = () => {
               }}
             >
               <Text sx={Estilo.mbtn1}>
-                Abonar
+                Canjear
                 {LoadingSecc ? <Spinner size={17} ml={0} /> : <div/>}
               </Text>
 

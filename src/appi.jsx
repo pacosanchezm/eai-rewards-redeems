@@ -78,7 +78,7 @@ let MiDetalle = {
 
   Importe: 0,
 
-  Abonar: null,
+  Abonar: 0,
 
 
   Obv: [""],
@@ -290,7 +290,7 @@ let useAcciones = function(StateContext) {
 
     Loader : async function (props) {
 
-      this.getUser()
+      // this.getUser()
       setLoadingDataMain(true)
       setLoadingDataMain(false)
 
@@ -421,7 +421,7 @@ let useAcciones = function(StateContext) {
         let AAbonar = Math.floor((Detalle.Nivel / 100) * Detalle.Importe)
 
 
-        let MiRegistro = await useData.Movimientos().add(Detalle, AAbonar, UserId, Sucursal) 
+        let MiRegistro = await useData.Movimientos().add(Detalle, 0, UserId, Sucursal) 
         console.log({MiRegistro: MiRegistro})
         if (MiRegistro>1) {setRegistrado(true)}
 

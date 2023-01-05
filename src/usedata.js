@@ -302,12 +302,12 @@ let usedata = function(StateContextM) {
 
 
                       "Enlace": e.EnlaceId,
-                      "Tipo": "Abono",
-                      "Concepto": "Abono por consumo",
+                      "Tipo": "Canje",
+                      "Concepto": "Canje por consumo",
                       "Folio": String(e.Folio),
                       "Ref": String(e.Ref),
-                      "Importe": Number(e.Importe),
-                      "Puntos": AAbonar,
+                      // "Importe": Number(e.Importe),
+                      "Puntos": (e.Importe)*-1,
                       "Obv": String(e.Obv)
 
 
