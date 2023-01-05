@@ -290,7 +290,7 @@ let useAcciones = function(StateContext) {
 
     Loader : async function (props) {
 
-      // this.getUser()
+      this.getUser()
       setLoadingDataMain(true)
       setLoadingDataMain(false)
 
