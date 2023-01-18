@@ -234,6 +234,64 @@ const ModuloSimple  = () => {
 
           <Box css={{ height: 21 }} />
 
+
+          
+      <Row>
+        <Col xs={9} style={{textAlign: "left"}}>
+          <Text sx={{...Estilo.msecc2, textAlign: "left"}}>{"Datos de la operación"}</Text> <Text sx={Estilo.d2s} ></Text>
+        </Col>
+      </Row>
+
+
+
+      <Container fluid 
+        style={{ width: "100%", bg: "white", borderRadius: "10px", borderStyle: "solid", borderWidth:1, borderColor: "#9999", paddingTop: "10px"}}
+      >
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Cliente</Text> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.ClienteNombre}</Text> </Col>
+        </Row>
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Tarjeta</Text> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Enlace}</Text> </Col>
+        </Row>
+
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Folio</Text> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Folio}</Text> </Col>
+        </Row>
+
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Puntos Canjeados</Text> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Importe}</Text> </Col>
+        </Row>
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Nuevo Saldo</Text> </Col>
+          <Col xs={3}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{NuevoSaldo}</Text> </Col>
+        </Row>
+
+
+        <Row style={{marginBottom: "10px"}}>
+          <Col xs={3}> <Text sx={Estilo.label1} >Folio de la Operación</Text> </Col>
+          <Col xs={5}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Id}</Text> </Col>
+        </Row>
+
+
+      </Container>
+
+
+
+
+
+
+
+
+
           <Row>
             <Text sx={Estilo.msecc2}>{"Enlace Gourmet"}</Text>
             <Text sx={Estilo.msecc1}>{""}</Text>
@@ -245,7 +303,7 @@ const ModuloSimple  = () => {
           <Box css={{ height: 21 }} />
 
 
-          {/* <Container fluid >
+          <Container fluid >
             <Row style={{marginBottom: "10px"}}>
             <Col xs={2}/> 
 
@@ -259,7 +317,7 @@ const ModuloSimple  = () => {
                   }}
                 >
                   <Text sx={Estilo.mbtn1}>
-                    Registrar Otra Visita
+                    Registrar Otro canje de puntos
                     {LoadingSecc ? <Spinner size={17} ml={0} /> : <div/>}
                   </Text>
 
@@ -268,7 +326,7 @@ const ModuloSimple  = () => {
 
             </Row>
 
-          </Container> */}
+          </Container>
 
 
          </Box>
@@ -422,8 +480,6 @@ const ModuloSimple  = () => {
           <Col xs={3}> <Text sx={Estilo.label1} >Saldo</Text> </Col>
           <Col xs={3}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{MiSaldo()}</Text> </Col>
 
-          <Col xs={3}> <Text sx={Estilo.label1} >Nivel</Text> </Col>
-          <Col xs={2}> <Text sx={{...Estilo.label1, textAlign: "left"}} >{Detalle.Nivel} %</Text> </Col>
         </Row>
 
       </Container>
